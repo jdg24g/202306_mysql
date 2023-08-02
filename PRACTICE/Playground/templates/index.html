@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .caja{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+    </style>
+    <title>{{tittle}}</title>
 </head>
 <body>
-    
+    <div class="container">
+        {% for i in range(0,num)%}
+        <div class="caja" style="background-color: {{color}};"></div>
+        {%endfor%}
+    </div>
 </body>
 </html>
