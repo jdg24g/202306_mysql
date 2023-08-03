@@ -14,6 +14,10 @@ def dirx(dirx):
 def dirxy(dirx,diry):
     return render_template('index.html',x=dirx,y=diry)
 
+@app.route('/<int:dirx>/<int:diry>/<string:bg_color1>/')
+def dirxycolor1(dirx, diry,bg_color1):
+    return render_template('index.html', x=dirx, y=diry, bg_color1=bg_color1)
+
 
 @app.route('/<int:dirx>/<int:diry>/<string:bg_color1>/<string:bg_color2>')
 def dirxycolor(dirx, diry,bg_color1, bg_color2):
