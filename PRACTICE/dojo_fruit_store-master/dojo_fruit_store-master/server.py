@@ -14,20 +14,31 @@ if __name__ == '__main__':
 
 
 app = Flask(__name__)  
-
+lista = []
 @app.route('/')         
 def index():
     return render_template('index.html')
 
 @app.route('/checkout', methods=['POST'])         
 def checkout():
-    lista = request.form
-    total = int(lista['strawberry'])+int(lista['raspberry']) + int(lista['apple'])
-     # Obtener la fecha y hora actual
-    now = datetime.now()
-    date_string = now.strftime('%B %d, %Y %I:%M:%S %p')
-    print(f'Cobrando a {lista["first_name"]} {lista["last_name"]} por {total} frutas')
-    return render_template('checkout.html',lista=lista,date_string=date_string,total=total)
+    lista.append(request.form)
+    return redirect('/show')
+
+@app.route('/show')
+def show():
+    try:
+        form_data = lista[-1]  # Obtener el último elemento de la lista, que es el ImmutableMultiDict
+        print(form_data)
+        total = int(form_data['strawberry']) + int(form_data['raspberry']) + int(form_data['apple'])
+        # Obtener la fecha y hora actual
+        now = datetime.now()
+        date_string = now.strftime('%B %d, %Y %I:%M:%S %p')
+        print(f'Cobrando a {form_data["first_name"]} {form_data["last_name"]} por {total} frutas')
+        return render_template('checkout.html', lista=form_data, date_string=date_string, total=total)
+    except:
+        print('Error')
+        return redirect('/')
+
 
 @app.route('/fruits')         
 def fruits():
