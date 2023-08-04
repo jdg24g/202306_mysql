@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,flash
 
 import os
 from datetime import datetime
@@ -13,7 +13,10 @@ if __name__ == '__main__':
 
 
 
-app = Flask(__name__)  
+app = Flask(__name__) 
+
+app.secret_key = 'XXXXXXXXXXXXXXXX'
+
 lista = []
 @app.route('/')         
 def index():
@@ -43,6 +46,8 @@ def show():
 @app.route('/fruits')         
 def fruits():
     return render_template('fruits.html',file_name=png_files)
+
+
 
 if __name__=='__main__':   
     app.run(debug=True, host='0.0.0.0',port=5000 )

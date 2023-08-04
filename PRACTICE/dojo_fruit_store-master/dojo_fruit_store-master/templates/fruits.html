@@ -56,8 +56,8 @@
             alt="{{img_name}}"
           />
           <div class="card-body">
-            {% set img_name_without_extension = img_name.split('.')[0] %}
-            <h5 class="card-title">{{ img_name_without_extension | capitalize }}</h5>
+            {% set quitar_png = img_name.split('.')[0] %}
+            <h5 class="card-title">{{ quitar_png | capitalize }}</h5>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
