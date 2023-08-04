@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>CONTADOR</h1>
+        <h2>{{ numero }}</h2>
+        <div class="botonera">
+          <a href="/sumar" class="btn add">SUMAR</a>
+          <a href="/reset" class="btn res">RESET</a>
+          <a href="/x2" class="btn x2">SUMAR +2</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
