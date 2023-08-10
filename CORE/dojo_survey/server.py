@@ -1,27 +1,23 @@
-from flask import Flask, render_template,redirect
-from flask import request
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
-app.secret_key = "clave"
+app.secret_key = 'tu_clave_secreta_aqui'
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-
-@app.route('/process',methods=['POST'])
+@app.route("/process", methods=["POST"])
 def process():
-    print(request.form)
-    return redirect('/result')
+    data = request.form
+    session['data'] = data
+    print(data)
+    return redirect("/result")
 
-@app.route('/result')
+@app.route("/result")
 def result():
-    return render_template('result.html')
+    data = session.get('data', None)
+    return render_template("result.html", data=data)
 
-
-
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0',port=5000)
+if __name__ == "__main__":
+    app.run(debug=True)
