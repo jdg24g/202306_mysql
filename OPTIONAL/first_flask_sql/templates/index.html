@@ -1,13 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container mt-5">
-    <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Example label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
-      </div>
-      <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Another label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
-      </div>
-</div>
+<p class="fs-1 text-center mt-3">These are my Friends</p>
+
+<table class="table">
+		<thead>
+			<tr>
+				<th class="table-dark" scope="col">First Name</th>
+				<th class="table-dark" scope="col">Last Name</th>
+				<th class="table-dark" scope="col">Occupation</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for one_friend in friends %}
+				<tr>
+					<td class="table-dark">{{ one_friend.first_name }}</td>
+					<td>{{ one_friend.last_name }}</td>
+					<td>{{ one_friend.occupation }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
 {% endblock %}
