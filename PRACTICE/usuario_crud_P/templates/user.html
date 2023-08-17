@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+     {% if user %}
+     <div class="card mt-4">
+        
+        <div class="card-body">
+            <h4 class="card-title">Usuario</h4>
+            <p class="card-text">Id: {{ user.id }}</p>
+            <p class="card-text">Nombre: {{ user.first_name }}</p>
+            <p class="card-text">Apellido: {{ user.last_name }}</p>
+            <p class="card-text">Correo: {{ user.email }}</p>
+            <a href="/" class="btn btn-primary">Volver</a>    
+        </div>
+     </div>
+     {% else %}
+     <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">ALERTA</h4>
+        <hr>
+        <p>No hay usuarios para mostrar</p>
+        <a href="/new_user" class="btn btn-light">Nuevo Usuario</a>
+      </div>
+     {% endif %}
+{% endblock %}
