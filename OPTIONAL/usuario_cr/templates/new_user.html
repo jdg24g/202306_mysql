@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="fs-1">Agregar un Usuario</p>
+<form action="/add_user" method="POST">
+	<div class="mb-3">
+	  <label for="fname" class="form-label">Nombre </label>
+	  <input type="text" class="form-control" id="fname" name="fname" aria-describedby="Nombre">
+	</div>
+	<div class="mb-3">
+		<label for="lname" class="form-label">Apellido</label>
+		<input type="text" class="form-control" id="lname" name="lname" aria-describedby="Apellido">
+	</div>
+	<div class="mb-3">
+		<label for="email" class="form-label">Correo</label>
+		<input type="email" class="form-control" id="email" name="email" aria-describedby="Ocupacion">
+	</div>
+	<button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+{% endblock %}
