@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="fs-1">Agregar un Amigo</p>
+<form action="/create_friend" method="POST">
+	<div class="mb-3">
+	  <label for="fname" class="form-label">Nombre </label>
+	  <input type="text" class="form-control" id="fname" name="fname" aria-describedby="Nombre">
+	</div>
+	<div class="mb-3">
+		<label for="lname" class="form-label">Apellido</label>
+		<input type="text" class="form-control" id="lname" name="lname" aria-describedby="Apellido">
+	</div>
+	<div class="mb-3">
+		<label for="occ" class="form-label">Ocupacion</label>
+		<input type="text" class="form-control" id="occ" name="occ" aria-describedby="Ocupacion">
+	</div>
+	<button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+{% endblock %}
