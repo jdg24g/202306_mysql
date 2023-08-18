@@ -9,7 +9,11 @@
             <p class="card-text">Nombre: {{ user.first_name }}</p>
             <p class="card-text">Apellido: {{ user.last_name }}</p>
             <p class="card-text">Correo: {{ user.email }}</p>
-            <a href="/" class="btn btn-primary">Volver</a>    
+            <p class="card-text">Creado: {{ user.created_at }}</p>
+            <p class="card-text">Actualizado: {{ user.updated_at }}</p>
+            <div class="d-grid gap-2 d-md-block">
+               <a href="/" class="btn btn-success">Volver</a>
+            </div>
         </div>
      </div>
      {% else %}
@@ -17,7 +21,9 @@
         <h4 class="alert-heading">ALERTA</h4>
         <hr>
         <p>No hay usuarios para mostrar</p>
-        <a href="/new_user" class="btn btn-light">Nuevo Usuario</a>
+        <div class="d-grid gap-2 d-md-block">
+         <a href="/new_user" class="btn btn-success">Nuevo Usuario</a>
+       </div>
       </div>
      {% endif %}
 {% endblock %}
