@@ -63,5 +63,13 @@ def update_user(id):
     return redirect('/user/'+str(id_usuario)+'/')
 
 
+@app.route('/delete_user/<int:id>/')
+def delete_user(id):
+    data = {
+        "id":id
+    }
+    User.delete(data)
+    return redirect('/')
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=5500)
