@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="fs-1">Editar usuario</p>
+<form action="/update_user/{{ user.id }}" method="POST">
+	<div class="mb-3">
+	  <label for="fname" class="form-label">Nombre </label>
+	  <input placeholder="{{ user.first_name }}" type="text" class="form-control" id="fname" name="fname" aria-describedby="Nombre">
+	</div>
+	<div class="mb-3">
+		<label for="lname" class="form-label">Apellido</label>
+		<input placeholder="{{ user.last_name }}" type="text" class="form-control" id="lname" name="lname" aria-describedby="Apellido">
+	</div>
+	<div class="mb-3">
+		<label for="email" class="form-label">Correo</label>
+		<input placeholder="{{ user.email }}" type="email" class="form-control" id="email" name="email" aria-describedby="Ocupacion">
+	</div>
+	<button type="submit" class="btn btn-primary">Editar</button>
+	<a href="/user/{{ user.id }}" class="btn btn-primary">Mostrar Usuario</a>
+</form>
+{% endblock %}

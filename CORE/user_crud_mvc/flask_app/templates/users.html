@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+   
+{% if users %}
+    
+        <table class="table mt-3 table-hover">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th class="align-middle">{{ user.id }}</th>
+                        <th class="align-middle">{{ user.first_name }}</th>
+                        <th class="align-middle">{{ user.last_name }}</th>
+                        <th class="align-middle">{{ user.email }}</th>
+                        <th class="align-middle">
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <a class="btn btn-primary btn-group-sm" href="/user/{{ user.id }}/">Show</a>
+                                <a class="btn btn-warning btn-group-sm" href="/user/edit/{{ user.id}}/">Edit</a>
+                                <a class="btn btn-danger  btn-group-sm" href="/delete_user/{{ user.id }}/">Delete</a>
+                            </div>
+                        </th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/new_user" class="btn btn-primary">Nuevo Usuario</a>
+
+    
+{% else %}
+    <div class="alert alert-secondary" role="alert">
+      <h4 class="alert-heading">ALERTA</h4>
+      <hr>
+      <p>No hay usuarios para mostrar</p>
+      
+      <div class="d-grid gap-2 d-md-block">
+        <a href="/new_user" class="btn btn-success">Nuevo Usuario</a>
+      </div>
+    </div>
+    
+    
+{% endif %}
+   
+{% endblock %}
