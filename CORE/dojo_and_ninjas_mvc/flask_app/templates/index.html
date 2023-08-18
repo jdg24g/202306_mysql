@@ -1,0 +1,87 @@
+{% extends "base.html" %} {{ title }} {% block content %} {% if dojos %}
+<div class="row row-cols-1 row-cols-sm-2">
+  <div class="col">
+    <div class="card text-center mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Crear Dojo</h5>
+        <form action="/new_dojo" method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-house-add"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h4a.5.5 0 1 0 0-1h-4a.5.5 0 0 1-.5-.5V7.207l5-5 6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"
+              />
+              <path
+                d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 1 0 1 0v-1h1a.5.5 0 1 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"
+              />
+            </svg>
+            Crear Dojo
+          </button>
+        </form>
+        <hr />
+        <a href="/ninja_form" class="btn btn-primary"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-up-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"
+            />
+          </svg>
+          Crear Ninja</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card text-center mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Dojos</h5>
+        <div
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical button group"
+        >
+          {% for dojo in dojos %}
+          <a href="/dojo/{{ dojo.id }}" class="btn btn-outline-primary">{{ dojo.name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="alert alert-info" role="alert">
+  <strong>Alerta</strong>
+  <hr />
+  <p>No hay datos aun agrega un dojo</p>
+  <div class="card text-center mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Crear Dojo</h5>
+      <form action="/new_dojo" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="name" name="name" />
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Dojo</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endif %} {% endblock %}
