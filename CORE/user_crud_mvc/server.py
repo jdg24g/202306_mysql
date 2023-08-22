@@ -1,5 +1,5 @@
-from flask_app.controllers.user_redirects import *
-from flask_app import app
+from app.controllers.user_redirects import *
+from app import app
 
 
 
